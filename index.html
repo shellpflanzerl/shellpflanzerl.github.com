@@ -16,12 +16,43 @@
                 <h1><a href="/">shellpflanzerl </a></h1>
                 <nav><ul>
                     <li><a href="/category/misc.html">Misc</a></li>
+                    <li><a href="/category/tips.html">Tips</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/hello-world.html">Hello World</a></h1>
+                    <h1 class="entry-title"><a href="/create-a-empty-git-branch.html">Create A Empty git Branch</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-12-03T22:00:00+01:00">
+                Published: Mit 03 Dezember 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/georg-vogetseder.html">Georg Vogetseder</a>
+        </address>
+<p>In <a href="/category/tips.html">Tips</a>. </p>
+
+</footer><!-- /.post-info --><p>If you want to create a new branch without any commit history:</p>
+<div class="highlight"><pre>git checkout --orphan &lt;branch_name&gt;
+git rm -r .
+</pre></div>
+
+
+<p>The <code>git rm -r</code> removes the files copied from the origin branch.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/hello-world.html" rel="bookmark"
+                           title="Permalink to Hello World">Hello World</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2014-12-03T21:00:00+01:00">
                 Published: Mit 03 Dezember 2014
@@ -32,9 +63,12 @@
         </address>
 <p>In <a href="/category/misc.html">Misc</a>. </p>
 <p>tags: <a href="/tag/test.html">test</a> </p>
-</footer><!-- /.post-info --><p>This is a test of the <strong>emergency broadcast system</strong>. Please stand by.</p>
-<p><img alt="Yes, master." src="/images/mad-dog.jpg" /></p>                </article>
-            </aside><!-- /#featured -->
+</footer><!-- /.post-info -->                <p>This is a test of the emergency broadcast system. Please stand by.</p>
+                <a class="readmore" href="/hello-world.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>

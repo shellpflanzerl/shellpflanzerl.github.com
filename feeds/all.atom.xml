@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>shellpflanzerl</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2014-12-03T21:00:00+01:00</updated><entry><title>Hello World</title><link href="/hello-world.html" rel="alternate"></link><updated>2014-12-03T21:00:00+01:00</updated><author><name>Georg Vogetseder</name></author><id>tag:,2014-12-03:hello-world.html</id><summary type="html">&lt;p&gt;This is a test of the &lt;strong&gt;emergency broadcast system&lt;/strong&gt;. Please stand by.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>shellpflanzerl</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2014-12-03T22:00:00+01:00</updated><entry><title>Create A Empty git Branch</title><link href="/create-a-empty-git-branch.html" rel="alternate"></link><updated>2014-12-03T22:00:00+01:00</updated><author><name>Georg Vogetseder</name></author><id>tag:,2014-12-03:create-a-empty-git-branch.html</id><summary type="html">&lt;p&gt;If you want to create a new branch without any commit history:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git checkout --orphan &amp;lt;branch_name&amp;gt;
+git rm -r .
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;git rm -r&lt;/code&gt; removes the files copied from the origin branch.&lt;/p&gt;</summary></entry><entry><title>Hello World</title><link href="/hello-world.html" rel="alternate"></link><updated>2014-12-03T21:00:00+01:00</updated><author><name>Georg Vogetseder</name></author><id>tag:,2014-12-03:hello-world.html</id><summary type="html">&lt;p&gt;This is a test of the &lt;strong&gt;emergency broadcast system&lt;/strong&gt;. Please stand by.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Yes, master." src="/images/mad-dog.jpg" /&gt;&lt;/p&gt;</summary><category term="test"></category></entry></feed>
