@@ -32,3 +32,13 @@ DEFAULT_PAGINATION = False
 
 STATIC_PATHS = ['images']
 ARTICLE_PATHS = ['blog']
+
+THEME = 'theme'
+TAGLINE = 'Strange stuff by strange people for strange people.'
+#TAGLINE 'Pflanzerei {f} [österr.] [ugs.], vgl. Veräppelung {f}'
+USER_LOGO_URL = 'images/pflanzerl_140.jpg'
+
+#THEME = 'themes/bootlex'
+
+#THEME = 'themes/pelican-bootstrap3'
+#SITELOGO = 'images/pflanzerl.jpg'
