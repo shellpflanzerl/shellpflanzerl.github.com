@@ -1,7 +1,6 @@
 Title: Create A Empty git Branch
 Date: 2014-12-03 22:00
 Authors: Georg Vogetseder
-Summary: Needed it for pelican :)
 
 If you want to create a new branch without any commit history:
 
