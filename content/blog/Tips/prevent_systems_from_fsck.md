@@ -1,5 +1,5 @@
 Title: Prevent systems from running fsck on boot
-Date: 2014-12-08 10:00
+Date: 2014-12-08 11:00
 Tags: Linux
 Authors: Martin Zehetmayer
 
@@ -9,7 +9,7 @@ for example if you are just migrating a productive server with a very large file
 How can this be achieved?
 
 1. Check if the files /forcefsck or /.autofsck exists in your root directory. Delete them. 
-2. Set the fs_passno in your /etc/fsck entry to zero (0).
+2. Set the fs_passno in your /etc/fstab entry to zero (This is the last value in a line)
 3. If you are using a system with systemd you can simply add 'fsck=skip' to your boot options.
 
 To check if a system is running a fsck on the next reboot you can check if the mount count or the 
