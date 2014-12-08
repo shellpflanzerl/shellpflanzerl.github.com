@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-          <title>shellpflanzerl</title>
-        <meta charset="utf-8" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="shellpflanzerl Full Atom Feed" />
-        <link href="/feeds/tips.atom.xml" type="application/atom+xml" rel="alternate" title="shellpflanzerl Categories Atom Feed" />
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Shellpflanzerl Collective">
+  <meta name="description" content="Posts and writings by The Shellpflanzerl Collective">
 
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="shellpflanzerl Atom" />
 
-    <meta name="tags" contents="Linux" />
+<meta name="keywords" content="Linux">
+
+  <title>
+    shellpflanzerl
+&ndash; Prevent systems from running fsck on boot  </title>
 
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">shellpflanzerl <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-        </ul></nav><!-- /#menu -->
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="/prevent-systems-from-running-fsck-on-boot.html" rel="bookmark"
-         title="Permalink to Prevent systems from running fsck on boot">Prevent systems from running fsck on boot</a></h2>
- 
-  </header>
-  <footer class="post-info">
-    <abbr class="published" title="2014-12-08T11:00:00+01:00">
-      Mon 08 December 2014
-    </abbr>
-    <address class="vcard author">
-      By           <a class="url fn" href="/author/martin-zehetmayer.html">Martin Zehetmayer</a>
-    </address>
-  </footer><!-- /.post-info -->
-  <div class="entry-content">
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="images/pflanzerl_140.jpg" alt="logo">
+      </a>
+      <h2><a href="">The Shellpflanzerl Collective</a></h2>
+      <p>Strange stuff by strange people for strange people.</p>
+      <ul>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h3><a href="/prevent-systems-from-running-fsck-on-boot.html">Prevent systems from running fsck on boot</a></h3>
+  </div>
+  <div class="article_text">
     <p>In some situation the fsck of a filesystem after a system reboot could be disastrous -
 for example if you are just migrating a productive server with a very large filesystem on it.</p>
 <p>How can this be achieved?</p>
@@ -57,13 +74,21 @@ mount interval is exceeding the configured values.</p>
 <p>If you want to disable these checks you use tune2fs: </p>
 <div class="highlight"><pre><span class="go">tune2fs -c0 -i0 /dev/mapper/my_vol_to_check</span>
 </pre></div>
-  </div><!-- /.entry-content -->
-</section>
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 08 December 2014</p>
+    <p>Category: <a href="/category/tips.html">Tips</a>
+ &ndash; Tags:
+      <a href="/tag/linux.html">Linux</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Shellpflanzerl Collective. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
 </body>
 </html>
