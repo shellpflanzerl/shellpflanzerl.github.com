@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>shellpflanzerl</title><link href="/" rel="alternate"></link><link href="/feeds/tips.atom.xml" rel="self"></link><id>/</id><updated>2014-12-08T11:00:00+01:00</updated><entry><title>Prevent systems from running fsck on boot</title><link href="/prevent-systems-from-running-fsck-on-boot.html" rel="alternate"></link><updated>2014-12-08T11:00:00+01:00</updated><author><name>Martin Zehetmayer</name></author><id>tag:,2014-12-08:prevent-systems-from-running-fsck-on-boot.html</id><summary type="html">&lt;p&gt;In some situation the fsck of a filesystem after a system reboot could be disastrous -
+<feed xmlns="http://www.w3.org/2005/Atom"><title>shellpflanzerl</title><link href="/" rel="alternate"></link><link href="/feeds/tips.atom.xml" rel="self"></link><id>/</id><updated>2014-12-12T07:57:00+01:00</updated><entry><title>Upgrade to Fedora 21</title><link href="/upgrade-to-fedora-21.html" rel="alternate"></link><updated>2014-12-12T07:57:00+01:00</updated><author><name>Martin Zehetmayer</name></author><id>tag:,2014-12-12:upgrade-to-fedora-21.html</id><summary type="html">&lt;p&gt;Most of you already read it - Fedora 21 is out in the wild and ready to be installed. 
+The main different are that there are flavours of Fedora: Workstation, Server and Cloud. 
+They are different in the number of packages installed - for example on the Workstation
+installation there will me (of course) a graphical interface which will not appear on 
+the server and the much smaller cloud flavour and in the default configuration of the 
+systems (firewalld rules, for example)&lt;/p&gt;
+&lt;p&gt;Coming from Fedora 20 I gave it a try on day 1 of the release to upgrade my Notebook: &lt;/p&gt;
+&lt;p&gt;:::console
+  # fedup --network 21 --product workstation 
+  [... download ... update kernel ... ]
+  # reboot&lt;/p&gt;
+&lt;p&gt;Surprisingly the upgrade runs without errors. Being a burnt child from the last updates
+I was sceptical if this works out - but hey, no risk no fun :-) &lt;/p&gt;
+&lt;p&gt;After that I was brave enough to update my NAS too: &lt;/p&gt;
+&lt;p&gt;:::console
+  # fedup --network 21 --product server 
+  [... download ... update kernel ... ]
+  # reboot&lt;/p&gt;
+&lt;p&gt;Again it worked seamlessly.&lt;/p&gt;
+&lt;p&gt;So all I can say is: Good work, Fedoraproject! Well done! &lt;/p&gt;</summary><category term="Linux"></category></entry><entry><title>Prevent systems from running fsck on boot</title><link href="/prevent-systems-from-running-fsck-on-boot.html" rel="alternate"></link><updated>2014-12-08T11:00:00+01:00</updated><author><name>Martin Zehetmayer</name></author><id>tag:,2014-12-08:prevent-systems-from-running-fsck-on-boot.html</id><summary type="html">&lt;p&gt;In some situation the fsck of a filesystem after a system reboot could be disastrous -
 for example if you are just migrating a productive server with a very large filesystem on it.&lt;/p&gt;
 &lt;p&gt;How can this be achieved?&lt;/p&gt;
 &lt;ol&gt;

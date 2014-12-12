@@ -17,10 +17,11 @@
 
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="shellpflanzerl Atom" />
 
+<meta name="keywords" content="Linux">
 
   <title>
     shellpflanzerl
-&ndash; Archives  </title>
+&ndash; Upgrade to Fedora 21  </title>
 
 </head>
 
@@ -46,18 +47,39 @@
     </header>
 
 <article>
-  <div class="article_text">
-    <dl>
-      <dt>Fri 12 December 2014</dt>
-      <dd><a href="/upgrade-to-fedora-21.html">Upgrade to Fedora 21</a></dd>
-      <dt>Mon 08 December 2014</dt>
-      <dd><a href="/prevent-systems-from-running-fsck-on-boot.html">Prevent systems from running fsck on boot</a></dd>
-      <dt>Wed 03 December 2014</dt>
-      <dd><a href="/create-a-empty-git-branch.html">Create A Empty git Branch</a></dd>
-      <dt>Wed 03 December 2014</dt>
-      <dd><a href="/hello-world.html">Hello World</a></dd>
-    </dl>
+  <div class="article_title">
+    <h3><a href="/upgrade-to-fedora-21.html">Upgrade to Fedora 21</a></h3>
   </div>
+  <div class="article_text">
+    <p>Most of you already read it - Fedora 21 is out in the wild and ready to be installed. 
+The main different are that there are flavours of Fedora: Workstation, Server and Cloud. 
+They are different in the number of packages installed - for example on the Workstation
+installation there will me (of course) a graphical interface which will not appear on 
+the server and the much smaller cloud flavour and in the default configuration of the 
+systems (firewalld rules, for example)</p>
+<p>Coming from Fedora 20 I gave it a try on day 1 of the release to upgrade my Notebook: </p>
+<p>:::console
+  # fedup --network 21 --product workstation 
+  [... download ... update kernel ... ]
+  # reboot</p>
+<p>Surprisingly the upgrade runs without errors. Being a burnt child from the last updates
+I was sceptical if this works out - but hey, no risk no fun :-) </p>
+<p>After that I was brave enough to update my NAS too: </p>
+<p>:::console
+  # fedup --network 21 --product server 
+  [... download ... update kernel ... ]
+  # reboot</p>
+<p>Again it worked seamlessly.</p>
+<p>So all I can say is: Good work, Fedoraproject! Well done! </p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 12 December 2014</p>
+    <p>Category: <a href="/category/tips.html">Tips</a>
+ &ndash; Tags:
+      <a href="/tag/linux.html">Linux</a>    </p>
+  </div>
+
+
 </article>
 
 
