@@ -27,12 +27,12 @@
 
 <body>
   <aside>
+    <h2><a href="">The Shellpflanzerl Collective</a></h2>
     <div id="user_meta">
+      <p>Strange stuff by strange people for strange people.</p>
       <a href="">
         <img src="images/pflanzerl_140.jpg" alt="logo">
       </a>
-      <h2><a href="">The Shellpflanzerl Collective</a></h2>
-      <p>Strange stuff by strange people for strange people.</p>
       <ul>
       </ul>
     </div>
@@ -56,7 +56,27 @@
     <p>Most of you already read it - Fedora 21 is out in the wild and ready to be installed. 
 The main different are that there are flavours of Fedora: Workstation, Server and Cloud. 
 They are different in the number of packages installed - for example on the Workstation
-installation there will me ...</p>
+installation there will me (of course) a graphical interface which will not appear on 
+the server and the much smaller cloud flavour and in the default configuration of the 
+systems (firewalld rules, for example)</p>
+<p>Coming from Fedora 20 I gave it a try on day 1 of the release to upgrade my Notebook: </p>
+<div class="highlight"><pre><span class="gp">#</span> fedup --network <span class="m">21</span> --product workstation 
+<span class="go">[... download ... update kernel ... ]</span>
+<span class="gp">#</span> reboot
+</pre></div>
+
+
+<p>Surprisingly the upgrade runs without errors. Being a burnt child from the last updates
+I was sceptical if this works out - but hey, no risk no fun :-) </p>
+<p>After that I was brave enough to update my NAS too: </p>
+<div class="highlight"><pre><span class="gp">#</span> fedup --network <span class="m">21</span> --product server 
+<span class="go">[... download ... update kernel ... ]</span>
+<span class="gp">#</span> reboot
+</pre></div>
+
+
+<p>Again it worked seamlessly.</p>
+<p>So all I can say is: Good work, Fedoraproject! Well done! </p>
   </div>
 </article>
 <hr />
@@ -69,7 +89,25 @@ installation there will me ...</p>
 for example if you are just migrating a productive server with a very large filesystem on it.</p>
 <p>How can this be achieved?</p>
 <ol>
-<li>Check if the files /forcefsck or /.autofsck exists in your root directory. Delete ...</li></ol>
+<li>Check if the files /forcefsck or /.autofsck exists in your root directory. Delete them. </li>
+<li>Set the fs_passno in your /etc/fstab entry to zero (This is the last value in a line)</li>
+<li>If you are using a system with systemd you can simply add 'fsck=skip' to your boot options.</li>
+</ol>
+<p>To check if a system is running a fsck on the next reboot you can check if the mount count or the 
+mount interval is exceeding the configured values.</p>
+<div class="highlight"><pre><span class="gp">#</span> dumpe2fs -h /dev/mapper/my_vol_to_check 
+<span class="go">...</span>
+<span class="go">Mount count:              8</span>
+<span class="go">Maximum mount count:      28</span>
+<span class="go">Check interval:           15552000 (6 months)</span>
+<span class="go">Next check after:         Wed Jan  7 12:18:30 2015</span>
+<span class="go">...</span>
+</pre></div>
+
+
+<p>If you want to disable these checks you use tune2fs: </p>
+<div class="highlight"><pre><span class="go">tune2fs -c0 -i0 /dev/mapper/my_vol_to_check</span>
+</pre></div>
   </div>
 </article>
 <hr />

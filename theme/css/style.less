@@ -1,20 +1,28 @@
-@red:  #ff0000;
-@black:  #000000;
-@white:  #ffffff;
-@light-grey:  #eeeeee;
-@med-grey:  #999999;
-@dark-grey:  #4d4d4d;
-@blue:  #0e94ec;
-@accent:  @blue;
-@sans: 'PT Sans', sans-serif;
-@serif: 'PT Serif', serif;
-@mono: 'PT Mono', monospace;
+@black: #000000;
+@realwhite: #ffffff;
+@white:  @clouds;
+@light-grey:  @silver;
+@med-grey:  @silver;
+@dark-grey:  @asbestos;
+@clouds: #ecf0f1;
+@asbestos: #7f8c8d;
+@silver: #bdc3c7;
+@midnight-blue: #2c3e50;
+@wet-asphalt: #34495e;
+@carrot: #e67e22;
+@pumpkin: #d35400;
+@accent-dark: @midnight-blue;
+@accent:  @wet-asphalt;
+
+@sans: 'Source Sans Pro', sans-serif;
+@serif: 'Source Serif Pro', serif;
+@mono: 'Source Code Pro', monospace;
 
 body {
   margin: 0;
   padding: 0;
   background-color: @white;
-  color: @dark-grey;
+  color: @black;
   font-family: @sans;
   font-size: 18px;
 }
@@ -38,17 +46,25 @@ hr {
 }
 
 aside {
-  div#user_meta {
-    padding: 40px;
-    text-align: center;
-
-    h2 {
-      margin: 15px 0 5px 0;
+  h2 {
+    background: @accent-dark;
+    text-transform: uppercase;
+    padding: 20px;
+    margin: 0;
+    text-align: right;
+    line-height: 1.375em;
+    a {
+      color: @white;
     }
+  }
+  div#user_meta {
+    padding: 40px 20px ;
+    text-align: center;
+    font-weight: lighter;
 
     p {
-      margin: 0 0 15px 0;
-      font-size: 14px;
+      margin: 0 0 40px 0;
+      font-size: 20px;
     }
 
     ul {
@@ -74,14 +90,19 @@ aside {
 
 main {
   header {
-    padding: 40px;
-    border-top: @light-grey 1px solid;
-    border-bottom: @light-grey 1px solid;
+    padding: 20px 40px;
+    background: @accent;
+    font-size: 16px;
 
     p {
-      font-weight: bold;
-      font-size: 10px;
+      color: @white;
       text-transform: uppercase;
+      margin: 1.8em 0;
+
+      a {
+        color: @white;
+        margin: 0 12px;
+      }
     }
   }
 
@@ -94,6 +115,7 @@ main {
 
     div.article_text {
       line-height: 1.375em;
+      font-weight: lighter;
       a {
         text-decoration: underline;
       }
@@ -110,11 +132,12 @@ main {
       pre {
         margin: 22px 2px 22px 2px;
         padding: 2px;
+        padding-left: 6px;
         color: @black;
         border-left: 3px solid @accent;
         font-size: 14px;
         font-family: @mono;
-        background: @light-grey;
+        background: @realwhite;
         line-height: 1.125em;
         overflow-x: auto;
       }
@@ -180,12 +203,19 @@ main {
     border-right: @light-grey 1px solid;
 
     h2 {
-      margin: 10px 0 0 0;
+      min-height: 80px;
     }
 
     div#user_meta {
-      max-width: 192px;
       text-align: right;
+
+      p {
+        margin-left: 39%;
+        width: 61%;
+      }
+      img {
+        width: 61%;
+      }
 
       ul {
         li {
@@ -209,6 +239,7 @@ main {
 
     header {
       border-top: 0;
+      min-height: 80px;
     }
   }
 }
