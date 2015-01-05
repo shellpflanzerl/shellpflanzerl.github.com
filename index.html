@@ -30,7 +30,7 @@
     <div id="user_meta">
       <p>Strange stuff by strange people for strange people.</p>
       <a href="">
-        <img src="images/pflanzerl_140.jpg" alt="logo">
+        <img src="/images/pflanzerl_1024.jpg" alt="logo">
       </a>
       <ul>
       </ul>
@@ -40,8 +40,8 @@
   <main>
     <header>
       <p>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feeds/all.atom.xml">Atom</a>
+      <a href="">Index</a> // <a href="/archives.html">Archives</a>
+      // <a href="/feeds/all.atom.xml">Atom</a>
       </p>
     </header>
 
@@ -51,9 +51,9 @@
   </div>
   <div class="article_text">
     <p>Most of you already read it - Fedora 21 is out in the wild and ready to be installed. 
-The main different are that there are flavours of Fedora: Workstation, Server and Cloud. 
+The main difference is that there are flavours of Fedora: Workstation, Server and Cloud. 
 They are different in the number of packages installed - for example on the Workstation
-installation there will me (of course) a graphical interface which will not appear on 
+installation there will be (of course) a graphical interface which will not appear on 
 the server and the much smaller cloud flavour and in the default configuration of the 
 systems (firewalld rules, for example)</p>
 <p>Coming from Fedora 20 I gave it a try on day 1 of the release to upgrade my Notebook: </p>
@@ -63,7 +63,7 @@ systems (firewalld rules, for example)</p>
 </pre></div>
 
 
-<p>Surprisingly the upgrade runs without errors. Being a burnt child from the last updates
+<p>Surprisingly the upgrade ran without errors. Being a burnt child from the last updates
 I was sceptical if this works out - but hey, no risk no fun :-) </p>
 <p>After that I was brave enough to update my NAS too: </p>
 <div class="highlight"><pre><span class="gp">#</span> fedup --network <span class="m">21</span> --product server 
@@ -73,7 +73,13 @@ I was sceptical if this works out - but hey, no risk no fun :-) </p>
 
 
 <p>Again it worked seamlessly.</p>
-<p>So all I can say is: Good work, Fedoraproject! Well done! </p>
+<p>So all I can say is: Good work, <a href="https://www.fedoraproject.org">Fedoraproject</a> ! Well done! </p>
+  </div>
+  <div class="article_meta">
+    <p>
+      Posted by: <a>Martin Zehetmayer</a>
+      on: <a>2014-12-12</a>
+    </p>
   </div>
 </article>
 <hr />
@@ -106,6 +112,12 @@ mount interval is exceeding the configured values.</p>
 <div class="highlight"><pre><span class="go">tune2fs -c0 -i0 /dev/mapper/my_vol_to_check</span>
 </pre></div>
   </div>
+  <div class="article_meta">
+    <p>
+      Posted by: <a>Martin Zehetmayer</a>
+      on: <a>2014-12-08</a>
+    </p>
+  </div>
 </article>
 <hr />
 <article>
@@ -121,6 +133,12 @@ git rm -r .
 
 <p>The <code>git rm -r</code> removes the files copied from the origin branch.</p>
   </div>
+  <div class="article_meta">
+    <p>
+      Posted by: <a>Georg Vogetseder</a>
+      on: <a>2014-12-03</a>
+    </p>
+  </div>
 </article>
 <hr />
 <article>
@@ -131,13 +149,26 @@ git rm -r .
     <p>This is a test of the <strong>emergency broadcast system</strong>. Please stand by.</p>
 <p><img alt="Yes, master." src="/images/mad-dog.jpg" /></p>
   </div>
+  <div class="article_meta">
+    <p>
+      Posted by: <a>Georg Vogetseder</a>
+      on: <a>2014-12-03</a>
+    </p>
+  </div>
 </article>
 
 <footer>
+<div id="paginator">
+
+</div>
 </footer>
 
     <div id="ending_message">
-      <p>&copy; The Shellpflanzerl Collective. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+      <p>
+        &copy; The Shellpflanzerl Collective. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>.
+        Theme <a href="https://github.com/shellpflanzerl/pelican-svbhack">modified</a> from
+        Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>.
+.</p>
     </div>
   </main>
 </body>

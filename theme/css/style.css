@@ -36,6 +36,10 @@ aside div#user_meta p {
   margin: 0 0 40px 0;
   font-size: 20px;
 }
+aside div#user_meta img {
+  width: 38%;
+  border-radius: 20px;
+}
 aside div#user_meta ul {
   margin: 40px 0 0 0;
   padding-left: 0;
@@ -63,6 +67,7 @@ main header p {
   color: #ecf0f1;
   text-transform: uppercase;
   margin: 1.8em 0;
+  font-weight: bolder;
 }
 main header p a {
   color: #ecf0f1;
@@ -80,21 +85,22 @@ main article div.article_text a {
   text-decoration: underline;
 }
 main article div.article_text code {
-  margin: 2px;
-  padding: 0;
+  margin: 2px 0;
+  padding: 0 2px;
   color: #000000;
   font-size: 14px;
   font-family: 'Source Code Pro', monospace;
-  background: #bdc3c7;
+  background: #ffffff;
+  font-weight: bolder;
 }
 main article div.article_text pre {
   margin: 22px 2px 22px 2px;
-  padding: 2px;
-  padding-left: 6px;
+  padding: 6px;
   color: #000000;
-  border-left: 3px solid #34495e;
+  border-left: 3px solid #e74c3c;
   font-size: 14px;
   font-family: 'Source Code Pro', monospace;
+  font-weight: bolder;
   background: #ffffff;
   line-height: 1.125em;
   overflow-x: auto;
@@ -109,8 +115,13 @@ main article div.gist {
   line-height: .875em;
 }
 main article div.article_meta {
-  font-size: 12px;
-  color: #bdc3c7;
+  font-size: 14px;
+  font-weight: lighter;
+  color: #7f8c8d;
+  border-left: 1px solid #e74c3c;
+}
+main article div.article_meta p {
+  margin: 2px 8px;
 }
 main footer {
   border-top: #bdc3c7 1px solid;
@@ -118,21 +129,21 @@ main footer {
 }
 main footer a.button_accent {
   padding: 10px;
-  border: 2px solid #34495e;
+  border: 2px solid #e74c3c;
   border-radius: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   text-transform: uppercase;
-  color: #34495e;
+  color: #e74c3c;
   font-size: 18px;
 }
 main footer a.button_accent:hover {
   color: #ecf0f1;
-  background-color: #34495e;
+  background-color: #e74c3c;
 }
 main footer a.button_accent:active {
   color: #ecf0f1;
-  background-color: #34495e;
+  background-color: #e74c3c;
 }
 main div#ending_message {
   border-top: #bdc3c7 1px solid;
@@ -157,9 +168,6 @@ main div#ending_message {
   }
   aside div#user_meta p {
     margin-left: 39%;
-    width: 61%;
-  }
-  aside div#user_meta img {
     width: 61%;
   }
   aside div#user_meta ul li {
