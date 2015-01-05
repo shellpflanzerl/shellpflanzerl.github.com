@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'The Shellpflanzerl Collective'
 SITENAME = 'shellpflanzerl'
-SITEURL = ''
+SITEURL = 'https://shellpflanzerl.github.io'
 
 PATH = 'content'
 
@@ -29,7 +29,7 @@ SOCIAL = ()
 DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 STATIC_PATHS = ['images']
 ARTICLE_PATHS = ['blog']
