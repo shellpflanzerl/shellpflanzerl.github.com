@@ -37,7 +37,7 @@ ARTICLE_PATHS = ['blog']
 THEME = 'theme'
 TAGLINE = 'Strange stuff by strange people for strange people.'
 #TAGLINE 'Pflanzerei {f} [österr.] [ugs.], vgl. Veräppelung {f}'
-USER_LOGO_URL = 'images/pflanzerl_140.jpg'
+USER_LOGO_URL = '/images/pflanzerl_1024.jpg'
 
 #THEME = 'themes/bootlex'
 
