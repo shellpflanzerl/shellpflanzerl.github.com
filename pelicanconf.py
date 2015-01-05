@@ -9,6 +9,7 @@ SITEURL = ''
 PATH = 'content'
 
 TIMEZONE = 'Europe/Vienna'
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
 DEFAULT_LANG = 'en'
 
