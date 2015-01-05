@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>shellpflanzerl</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2014-12-12T07:57:00+01:00</updated><entry><title>Upgrade to Fedora 21</title><link href="/upgrade-to-fedora-21.html" rel="alternate"></link><updated>2014-12-12T07:57:00+01:00</updated><author><name>Martin Zehetmayer</name></author><id>tag:,2014-12-12:upgrade-to-fedora-21.html</id><summary type="html">&lt;p&gt;Most of you already read it - Fedora 21 is out in the wild and ready to be installed. 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>shellpflanzerl</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2015-01-05T22:00:00+01:00</updated><entry><title>Upgrade to Fedora 21, the dnf way</title><link href="/upgrade-to-fedora-21-the-dnf-way.html" rel="alternate"></link><updated>2015-01-05T22:00:00+01:00</updated><author><name>Georg Vogetseder</name></author><id>tag:,2015-01-05:upgrade-to-fedora-21-the-dnf-way.html</id><summary type="html">&lt;p&gt;My fleet of Fedoras is always updated using yum directly. I presume that
+&lt;code&gt;fedup&lt;/code&gt; works well for most use cases, but I think using the package manager directly,
+as with pacman or apt-get is the golden way to upgrading. The last really
+hard Fedora upgrade this way was the Fedora 17 Upgrade, where &lt;code&gt;/bin&lt;/code&gt; and
+&lt;code&gt;/usr/bin&lt;/code&gt; got merged. It was possible, but there was a lot of ugliness
+involved when using 3rd-party RPMs. The Fedora 21 upgrade contains nothing nasty in
+this department.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fedoraproject.org/wiki/Upgrading_Fedora_using_yum#Fedora_20_-.3E_Fedora_21"&gt;The official Wiki page&lt;/a&gt;
+contains no warnings, just the usual RPM-Key import and a notice on choosing a
+flavor. A &lt;code&gt;touch /.autorelabel&lt;/code&gt; should fix SELinux Problems.&lt;/p&gt;
+&lt;p&gt;To spice things up, I thought to use
+&lt;a href="https://github.com/rpm-software-management/dnf"&gt;&lt;code&gt;dnf&lt;/code&gt;&lt;/a&gt; - the new package
+manager in Fedora for the upgrade. It utilizes &lt;code&gt;libsolv&lt;/code&gt; from openSUSE for
+dependency resolution and should work better than yum in this respect.&lt;/p&gt;
+&lt;p&gt;And it totally worked for me. Without a single problem, just by replacing the yum commands from
+the wiki with dnf. Cool stuff.&lt;/p&gt;</summary></entry><entry><title>Upgrade to Fedora 21</title><link href="/upgrade-to-fedora-21.html" rel="alternate"></link><updated>2014-12-12T07:57:00+01:00</updated><author><name>Martin Zehetmayer</name></author><id>tag:,2014-12-12:upgrade-to-fedora-21.html</id><summary type="html">&lt;p&gt;Most of you already read it - Fedora 21 is out in the wild and ready to be installed. 
 The main difference is that there are flavours of Fedora: Workstation, Server and Cloud. 
 They are different in the number of packages installed - for example on the Workstation
 installation there will be (of course) a graphical interface which will not appear on 

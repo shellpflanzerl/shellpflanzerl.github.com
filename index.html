@@ -47,6 +47,36 @@
 
 <article>
   <div class="article_title">
+    <h3><a href="/upgrade-to-fedora-21-the-dnf-way.html">Upgrade to Fedora 21, the dnf way</a></h3>
+  </div>
+  <div class="article_text">
+    <p>My fleet of Fedoras is always updated using yum directly. I presume that
+<code>fedup</code> works well for most use cases, but I think using the package manager directly,
+as with pacman or apt-get is the golden way to upgrading. The last really
+hard Fedora upgrade this way was the Fedora 17 Upgrade, where <code>/bin</code> and
+<code>/usr/bin</code> got merged. It was possible, but there was a lot of ugliness
+involved when using 3rd-party RPMs. The Fedora 21 upgrade contains nothing nasty in
+this department.</p>
+<p><a href="https://fedoraproject.org/wiki/Upgrading_Fedora_using_yum#Fedora_20_-.3E_Fedora_21">The official Wiki page</a>
+contains no warnings, just the usual RPM-Key import and a notice on choosing a
+flavor. A <code>touch /.autorelabel</code> should fix SELinux Problems.</p>
+<p>To spice things up, I thought to use
+<a href="https://github.com/rpm-software-management/dnf"><code>dnf</code></a> - the new package
+manager in Fedora for the upgrade. It utilizes <code>libsolv</code> from openSUSE for
+dependency resolution and should work better than yum in this respect.</p>
+<p>And it totally worked for me. Without a single problem, just by replacing the yum commands from
+the wiki with dnf. Cool stuff.</p>
+  </div>
+  <div class="article_meta">
+    <p>
+      Posted by: <a>Georg Vogetseder</a>
+      on: <a>2015-01-05</a>
+    </p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h3><a href="/upgrade-to-fedora-21.html">Upgrade to Fedora 21</a></h3>
   </div>
   <div class="article_text">
