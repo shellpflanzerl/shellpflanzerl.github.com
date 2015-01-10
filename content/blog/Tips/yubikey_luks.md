@@ -80,6 +80,7 @@ We put all this in a script:
 
 
     #!/bin/bash
+    # random string as challenge: 
     challenge="yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu"
     pass=`ykchalresp -2 $challenge`
     echo "$pass" | cryptsetup luksOpen /dev/vg_data/private private_data
