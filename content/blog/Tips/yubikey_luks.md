@@ -83,8 +83,8 @@ We put all this in a script:
     # random string as challenge: 
     challenge="yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu"
     pass=`ykchalresp -2 $challenge`
-    echo "$pass" | cryptsetup luksOpen /dev/vg_data/private private_data
-    mount /dev/mapper/myprivate_data /my_private_data
+    echo "$pass" | cryptsetup luksOpen /dev/data/private myprivatedata
+    mount /dev/mapper/myprivatedata /my_private_data
 
 
 Now we have a fully functional Yubikey configured to mount LUKS devices.
