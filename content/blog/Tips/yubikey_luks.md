@@ -79,11 +79,11 @@ We add the key:
 We put all this in a script: 
 
 
-#!/bin/bash
-challenge="yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu"
-pass=`ykchalresp -2 $challenge`
-echo "$pass" | cryptsetup luksOpen /dev/vg_data/private private_data
-mount /dev/mapper/myprivate_data /my_private_data
+    #!/bin/bash
+    challenge="yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu"
+    pass=`ykchalresp -2 $challenge`
+    echo "$pass" | cryptsetup luksOpen /dev/vg_data/private private_data
+    mount /dev/mapper/myprivate_data /my_private_data
 
 
 Now we have a fully functional Yubikey configured to mount LUKS devices.
