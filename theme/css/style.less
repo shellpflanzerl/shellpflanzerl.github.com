@@ -1,20 +1,30 @@
-@red:  #ff0000;
-@black:  #000000;
-@white:  #ffffff;
-@light-grey:  #eeeeee;
-@med-grey:  #999999;
-@dark-grey:  #4d4d4d;
-@blue:  #0e94ec;
-@accent:  @blue;
-@sans: 'PT Sans', sans-serif;
-@serif: 'PT Serif', serif;
-@mono: 'PT Mono', monospace;
+@black: #000000;
+@realwhite: #ffffff;
+@white:  @clouds;
+@light-grey:  @silver;
+@med-grey:  @silver;
+@dark-grey:  @asbestos;
+@clouds: #ecf0f1;
+@asbestos: #7f8c8d;
+@silver: #bdc3c7;
+@midnight-blue: #2c3e50;
+@wet-asphalt: #34495e;
+@carrot: #e67e22;
+@pumpkin: #d35400;
+@sun-flower: #f1c40f;
+@alizarin: #e74c3c;
+@accent-dark: @midnight-blue;
+@accent:  @wet-asphalt;
+@accent-oppo: @alizarin;
+
+@sans: 'Source Sans Pro', sans-serif;
+@mono: 'Source Code Pro', monospace;
 
 body {
   margin: 0;
   padding: 0;
   background-color: @white;
-  color: @dark-grey;
+  color: @black;
   font-family: @sans;
   font-size: 18px;
 }
@@ -38,17 +48,29 @@ hr {
 }
 
 aside {
-  div#user_meta {
-    padding: 40px;
-    text-align: center;
-
-    h2 {
-      margin: 15px 0 5px 0;
+  h2 {
+    background: @accent-dark;
+    text-transform: uppercase;
+    padding: 20px;
+    margin: 0;
+    text-align: right;
+    line-height: 1.375em;
+    a {
+      color: @white;
     }
+  }
+  div#user_meta {
+    padding: 40px 20px ;
+    text-align: center;
+    font-weight: lighter;
 
     p {
-      margin: 0 0 15px 0;
-      font-size: 14px;
+      margin: 0 0 40px 0;
+      font-size: 20px;
+    }
+    img {
+      width: 38%;
+      border-radius: 20px;
     }
 
     ul {
@@ -74,14 +96,20 @@ aside {
 
 main {
   header {
-    padding: 40px;
-    border-top: @light-grey 1px solid;
-    border-bottom: @light-grey 1px solid;
+    padding: 20px 40px;
+    background: @accent;
+    font-size: 16px;
 
     p {
-      font-weight: bold;
-      font-size: 10px;
+      color: @white;
       text-transform: uppercase;
+      margin: 1.8em 0;
+      font-weight: bolder;
+
+      a {
+        color: @white;
+        margin: 0 12px;
+      }
     }
   }
 
@@ -94,27 +122,30 @@ main {
 
     div.article_text {
       line-height: 1.375em;
+      font-weight: lighter;
       a {
         text-decoration: underline;
       }
 
       code {
-        margin: 2px;
-        padding: 0;
+        margin: 2px 0;
+        padding: 0 2px;
         color: @black;
         font-size: 14px;
         font-family: @mono;
-        background: @light-grey;
+        background: @realwhite;
+        font-weight: bolder;
       }
 
       pre {
         margin: 22px 2px 22px 2px;
-        padding: 2px;
+        padding: 6px;
         color: @black;
-        border-left: 3px solid @accent;
+        border-left: 3px solid @accent-oppo;
         font-size: 14px;
         font-family: @mono;
-        background: @light-grey;
+        font-weight: bolder;
+        background: @realwhite;
         line-height: 1.125em;
         overflow-x: auto;
       }
@@ -132,8 +163,13 @@ main {
     }
 
     div.article_meta {
-      font-size: 12px;
-      color: @med-grey;
+      font-size: 14px;
+      font-weight: lighter;
+      color: @dark-grey;
+      border-left: 1px solid @accent-oppo;
+      p {
+        margin: 2px 8px;
+      }
     }
   }
 
@@ -143,18 +179,18 @@ main {
 
     a.button_accent {
       padding: 10px;
-      border: 2px solid @accent;
+      border: 2px solid @accent-oppo;
       .border-radius(20px);
       text-transform: uppercase;
-      color: @accent;
+      color: @accent-oppo;
       font-size: 18px;
       &:hover {
         color: @white;
-        background-color: @accent;
+        background-color: @accent-oppo;
       }
       &:active {
         color: @white;
-        background-color: @accent;
+        background-color: @accent-oppo;
       }
     }
 
@@ -180,12 +216,16 @@ main {
     border-right: @light-grey 1px solid;
 
     h2 {
-      margin: 10px 0 0 0;
+      min-height: 80px;
     }
 
     div#user_meta {
-      max-width: 192px;
       text-align: right;
+
+      p {
+        margin-left: 39%;
+        width: 61%;
+      }
 
       ul {
         li {
@@ -209,6 +249,7 @@ main {
 
     header {
       border-top: 0;
+      min-height: 80px;
     }
   }
 }
