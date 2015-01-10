@@ -73,14 +73,23 @@ We add the key:
     key slot 0 unlocked.
     Enter new passphrase for key slot:
     Verify passphrase:
-    Command successful.
 
+When all worked we have now a new key in keyslot 1:
 
-We put all this in a script: 
+    root@nas [0] ~ # cryptsetup luksDump /dev/data/private | grep DISABLED
+    Key Slot 2: DISABLED
+    Key Slot 3: DISABLED
+    Key Slot 4: DISABLED
+    Key Slot 5: DISABLED
+    Key Slot 6: DISABLED
+    Key Slot 7: DISABLED
 
+Key Slot 1 is now not DISABLED, so we have a key in it. To get all this work together
+we can write a Script which gets the password from the Yubikey, unlocks the LUKS device
+and mount it: 
 
     #!/bin/bash
-    # random string as challenge: 
+    # random string as challenge! CHANGE THIS FOR YOUR NEED!
     challenge="yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu"
     pass=`ykchalresp -2 $challenge`
     echo "$pass" | cryptsetup luksOpen /dev/data/private myprivatedata
