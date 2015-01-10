@@ -113,20 +113,34 @@ Enter any existing passphrase:
 key slot 0 unlocked.
 Enter new passphrase for key slot:
 Verify passphrase:
-Command successful.
 </pre></div>
 
 
-<p>We put all this in a script: </p>
+<p>When all worked we have now a new key in keyslot 1:</p>
+<div class="highlight"><pre>root@nas [0] ~ # cryptsetup luksDump /dev/data/private | grep DISABLED
+Key Slot 2: DISABLED
+Key Slot 3: DISABLED
+Key Slot 4: DISABLED
+Key Slot 5: DISABLED
+Key Slot 6: DISABLED
+Key Slot 7: DISABLED
+</pre></div>
+
+
+<p>Key Slot 1 is now not DISABLED, so we have a key in it. To get all this work together
+we can write a Script which gets the password from the Yubikey, unlocks the LUKS device
+and mount it: </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="c"># random string as challenge! CHANGE THIS FOR YOUR NEED!</span>
 <span class="nv">challenge</span><span class="o">=</span><span class="s2">&quot;yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu&quot;</span>
 <span class="nv">pass</span><span class="o">=</span><span class="sb">`</span>ykchalresp -2 <span class="nv">$challenge</span><span class="sb">`</span>
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$pass</span><span class="s2">&quot;</span> <span class="p">|</span> cryptsetup luksOpen /dev/vg_data/private private_data
-mount /dev/mapper/myprivate_data /my_private_data
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$pass</span><span class="s2">&quot;</span> <span class="p">|</span> cryptsetup luksOpen /dev/data/private myprivatedata
+mount /dev/mapper/myprivatedata /my_private_data
 </pre></div>
 </td></tr></table>
 
