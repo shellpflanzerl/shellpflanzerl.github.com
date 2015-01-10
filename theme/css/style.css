@@ -1,9 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ecf0f1;
-  color: #000000;
-  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #ffffff;
+  color: #4d4d4d;
+  font-family: 'PT Sans', sans-serif;
   font-size: 18px;
 }
 a {
@@ -11,34 +11,21 @@ a {
   text-decoration: none;
 }
 hr {
-  color: #bdc3c7;
-  background-color: #bdc3c7;
+  color: #eeeeee;
+  background-color: #eeeeee;
   height: 1px;
   border: none;
 }
-aside h2 {
-  background: #2c3e50;
-  text-transform: uppercase;
-  padding: 20px;
-  margin: 0;
-  text-align: right;
-  line-height: 1.375em;
-}
-aside h2 a {
-  color: #ecf0f1;
-}
 aside div#user_meta {
-  padding: 40px 20px ;
+  padding: 40px;
   text-align: center;
-  font-weight: lighter;
+}
+aside div#user_meta h2 {
+  margin: 15px 0 5px 0;
 }
 aside div#user_meta p {
-  margin: 0 0 40px 0;
-  font-size: 20px;
-}
-aside div#user_meta img {
-  width: 38%;
-  border-radius: 20px;
+  margin: 0 0 15px 0;
+  font-size: 14px;
 }
 aside div#user_meta ul {
   margin: 40px 0 0 0;
@@ -52,26 +39,21 @@ aside div#user_meta ul li {
 }
 aside div#user_meta ul li a {
   padding: 5px 15px 5px 15px;
-  border: 3px solid #bdc3c7;
+  border: 3px solid #eeeeee;
   border-radius: 15px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
-  color: #bdc3c7;
+  color: #999999;
 }
 main header {
-  padding: 20px 40px;
-  background: #34495e;
-  font-size: 16px;
+  padding: 40px;
+  border-top: #eeeeee 1px solid;
+  border-bottom: #eeeeee 1px solid;
 }
 main header p {
-  color: #ecf0f1;
+  font-weight: bold;
+  font-size: 10px;
   text-transform: uppercase;
-  margin: 1.8em 0;
-  font-weight: bolder;
-}
-main header p a {
-  color: #ecf0f1;
-  margin: 0 12px;
 }
 main article {
   max-width: 640px;
@@ -79,76 +61,68 @@ main article {
 }
 main article div.article_text {
   line-height: 1.375em;
-  font-weight: lighter;
 }
 main article div.article_text a {
   text-decoration: underline;
 }
 main article div.article_text code {
-  margin: 2px 0;
-  padding: 0 2px;
+  margin: 2px;
+  padding: 0;
   color: #000000;
   font-size: 14px;
-  font-family: 'Source Code Pro', monospace;
-  background: #ffffff;
-  font-weight: bolder;
+  font-family: 'PT Mono', monospace;
+  background: #eeeeee;
 }
 main article div.article_text pre {
   margin: 22px 2px 22px 2px;
-  padding: 6px;
+  padding: 2px;
   color: #000000;
-  border-left: 3px solid #e74c3c;
+  border-left: 3px solid #0e94ec;
   font-size: 14px;
-  font-family: 'Source Code Pro', monospace;
-  font-weight: bolder;
-  background: #ffffff;
+  font-family: 'PT Mono', monospace;
+  background: #eeeeee;
   line-height: 1.125em;
   overflow-x: auto;
 }
 main article div.article_text blockquote {
   margin: 22px 2px 22px 2px;
   padding-left: 40px;
-  color: #bdc3c7;
+  color: #999999;
   font-style: italic;
 }
 main article div.gist {
   line-height: .875em;
 }
 main article div.article_meta {
-  font-size: 14px;
-  font-weight: lighter;
-  color: #7f8c8d;
-  border-left: 1px solid #e74c3c;
-}
-main article div.article_meta p {
-  margin: 2px 8px;
+  font-size: 12px;
+  color: #999999;
 }
 main footer {
-  border-top: #bdc3c7 1px solid;
+  border-top: #eeeeee 1px solid;
   padding: 40px;
 }
 main footer a.button_accent {
   padding: 10px;
-  border: 2px solid #e74c3c;
+  border: 2px solid #0e94ec;
   border-radius: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   text-transform: uppercase;
-  color: #e74c3c;
+  color: #0e94ec;
   font-size: 18px;
 }
 main footer a.button_accent:hover {
-  color: #ecf0f1;
-  background-color: #e74c3c;
+  color: #ffffff;
+  background-color: #0e94ec;
 }
 main footer a.button_accent:active {
-  color: #ecf0f1;
-  background-color: #e74c3c;
+  color: #ffffff;
+  background-color: #0e94ec;
 }
 main div#ending_message {
-  border-top: #bdc3c7 1px solid;
+  border-top: #eeeeee 1px solid;
   padding: 0 40px 0 40px;
-  color: #bdc3c7;
+  color: #999999;
   font-size: 10px;
 }
 @media screen and (min-width: 1024px) {
@@ -158,17 +132,14 @@ main div#ending_message {
     position: fixed;
     top: 0;
     left: 0;
-    border-right: #bdc3c7 1px solid;
+    border-right: #eeeeee 1px solid;
   }
   aside h2 {
-    min-height: 80px;
+    margin: 10px 0 0 0;
   }
   aside div#user_meta {
+    max-width: 192px;
     text-align: right;
-  }
-  aside div#user_meta p {
-    margin-left: 39%;
-    width: 61%;
   }
   aside div#user_meta ul li {
     display: block;
@@ -186,6 +157,5 @@ main div#ending_message {
   }
   main header {
     border-top: 0;
-    min-height: 80px;
   }
 }

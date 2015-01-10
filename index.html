@@ -8,7 +8,7 @@
   -->
   <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
   <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
-  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,300|Source+Sans+Pro:400,300,600,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,12 +26,12 @@
 
 <body>
   <aside>
-    <h2><a href=".">The Shellpflanzerl Collective</a></h2>
     <div id="user_meta">
-      <p>Strange stuff by strange people for strange people.</p>
       <a href=".">
         <img src="/images/pflanzerl_1024.jpg" alt="logo">
       </a>
+      <h2><a href=".">The Shellpflanzerl Collective</a></h2>
+      <p>Strange stuff by strange people for strange people.</p>
       <ul>
       </ul>
     </div>
@@ -40,8 +40,8 @@
   <main>
     <header>
       <p>
-      <a href=".">Index</a> // <a href="./archives.html">Archives</a>
-      // <a href="https://shellpflanzerl.github.io/feeds/all.atom.xml">Atom</a>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="https://shellpflanzerl.github.io/feeds/all.atom.xml">Atom</a>
       </p>
     </header>
 
@@ -53,25 +53,7 @@
     <p>My fleet of Fedoras is always updated using yum directly. I presume that
 <code>fedup</code> works well for most use cases, but I think using the package manager directly,
 as with pacman or apt-get is the golden way to upgrading. The last really
-hard Fedora upgrade this way was the Fedora 17 Upgrade, where <code>/bin</code> and
-<code>/usr/bin</code> got merged. It was possible, but there was a lot of ugliness
-involved when using 3rd-party RPMs. The Fedora 21 upgrade contains nothing nasty in
-this department.</p>
-<p><a href="https://fedoraproject.org/wiki/Upgrading_Fedora_using_yum#Fedora_20_-.3E_Fedora_21">The official Wiki page</a>
-contains no warnings, just the usual RPM-Key import and a notice on choosing a
-flavor. A <code>touch /.autorelabel</code> should fix SELinux Problems.</p>
-<p>To spice things up, I thought to use
-<a href="https://github.com/rpm-software-management/dnf"><code>dnf</code></a> - the new package
-manager in Fedora for the upgrade. It utilizes <code>libsolv</code> from openSUSE for
-dependency resolution and should work better than yum in this respect.</p>
-<p>And it totally worked for me. Without a single problem, just by replacing the yum commands from
-the wiki with dnf. Cool stuff.</p>
-  </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Georg Vogetseder</a>
-      on: <a>2015-01-05</a>
-    </p>
+hard Fedora upgrade this way was the Fedora ...</p>
   </div>
 </article>
 <hr />
@@ -83,33 +65,7 @@ the wiki with dnf. Cool stuff.</p>
     <p>Most of you already read it - Fedora 21 is out in the wild and ready to be installed. 
 The main difference is that there are flavours of Fedora: Workstation, Server and Cloud. 
 They are different in the number of packages installed - for example on the Workstation
-installation there will be (of course) a graphical interface which will not appear on 
-the server and the much smaller cloud flavour and in the default configuration of the 
-systems (firewalld rules, for example)</p>
-<p>Coming from Fedora 20 I gave it a try on day 1 of the release to upgrade my Notebook: </p>
-<div class="highlight"><pre><span class="gp">#</span> fedup --network <span class="m">21</span> --product workstation 
-<span class="go">[... download ... update kernel ... ]</span>
-<span class="gp">#</span> reboot
-</pre></div>
-
-
-<p>Surprisingly the upgrade ran without errors. Being a burnt child from the last updates
-I was sceptical if this works out - but hey, no risk no fun :-) </p>
-<p>After that I was brave enough to update my NAS too: </p>
-<div class="highlight"><pre><span class="gp">#</span> fedup --network <span class="m">21</span> --product server 
-<span class="go">[... download ... update kernel ... ]</span>
-<span class="gp">#</span> reboot
-</pre></div>
-
-
-<p>Again it worked seamlessly.</p>
-<p>So all I can say is: Good work, <a href="https://www.fedoraproject.org">Fedoraproject</a> ! Well done! </p>
-  </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Martin Zehetmayer</a>
-      on: <a>2014-12-12</a>
-    </p>
+installation there will be ...</p>
   </div>
 </article>
 <hr />
@@ -122,31 +78,7 @@ I was sceptical if this works out - but hey, no risk no fun :-) </p>
 for example if you are just migrating a productive server with a very large filesystem on it.</p>
 <p>How can this be achieved?</p>
 <ol>
-<li>Check if the files /forcefsck or /.autofsck exists in your root directory. Delete them. </li>
-<li>Set the fs_passno in your /etc/fstab entry to zero (This is the last value in a line)</li>
-<li>If you are using a system with systemd you can simply add 'fsck=skip' to your boot options.</li>
-</ol>
-<p>To check if a system is running a fsck on the next reboot you can check if the mount count or the 
-mount interval is exceeding the configured values.</p>
-<div class="highlight"><pre><span class="gp">#</span> dumpe2fs -h /dev/mapper/my_vol_to_check 
-<span class="go">...</span>
-<span class="go">Mount count:              8</span>
-<span class="go">Maximum mount count:      28</span>
-<span class="go">Check interval:           15552000 (6 months)</span>
-<span class="go">Next check after:         Wed Jan  7 12:18:30 2015</span>
-<span class="go">...</span>
-</pre></div>
-
-
-<p>If you want to disable these checks you use tune2fs: </p>
-<div class="highlight"><pre><span class="go">tune2fs -c0 -i0 /dev/mapper/my_vol_to_check</span>
-</pre></div>
-  </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Martin Zehetmayer</a>
-      on: <a>2014-12-08</a>
-    </p>
+<li>Check if the files /forcefsck or /.autofsck exists in your root directory. Delete ...</li></ol>
   </div>
 </article>
 <hr />
@@ -163,12 +95,6 @@ git rm -r .
 
 <p>The <code>git rm -r</code> removes the files copied from the origin branch.</p>
   </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Georg Vogetseder</a>
-      on: <a>2014-12-03</a>
-    </p>
-  </div>
 </article>
 <hr />
 <article>
@@ -179,12 +105,6 @@ git rm -r .
     <p>This is a test of the <strong>emergency broadcast system</strong>. Please stand by.</p>
 <p><img alt="Yes, master." src="./images/mad-dog.jpg" /></p>
   </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Georg Vogetseder</a>
-      on: <a>2014-12-03</a>
-    </p>
-  </div>
 </article>
 
 <footer>
@@ -194,11 +114,7 @@ git rm -r .
 </footer>
 
     <div id="ending_message">
-      <p>
-        &copy; The Shellpflanzerl Collective. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>.
-        Theme <a href="https://github.com/shellpflanzerl/pelican-svbhack">modified</a> from
-        Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>.
-.</p>
+      <p>&copy; The Shellpflanzerl Collective. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
     </div>
   </main>
 </body>

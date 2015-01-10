@@ -8,7 +8,7 @@
   -->
   <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
   <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
-  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,300|Source+Sans+Pro:400,300,600,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,12 +26,12 @@
 
 <body>
   <aside>
-    <h2><a href="..">The Shellpflanzerl Collective</a></h2>
     <div id="user_meta">
-      <p>Strange stuff by strange people for strange people.</p>
       <a href="..">
         <img src="/images/pflanzerl_1024.jpg" alt="logo">
       </a>
+      <h2><a href="..">The Shellpflanzerl Collective</a></h2>
+      <p>Strange stuff by strange people for strange people.</p>
       <ul>
       </ul>
     </div>
@@ -40,8 +40,8 @@
   <main>
     <header>
       <p>
-      <a href="..">Index</a> // <a href="../archives.html">Archives</a>
-      // <a href="https://shellpflanzerl.github.io/feeds/all.atom.xml">Atom</a>
+      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
+      &brvbar; <a href="https://shellpflanzerl.github.io/feeds/all.atom.xml">Atom</a>
 &gt; Author: Georg Vogetseder
       </p>
     </header>
@@ -54,25 +54,7 @@
     <p>My fleet of Fedoras is always updated using yum directly. I presume that
 <code>fedup</code> works well for most use cases, but I think using the package manager directly,
 as with pacman or apt-get is the golden way to upgrading. The last really
-hard Fedora upgrade this way was the Fedora 17 Upgrade, where <code>/bin</code> and
-<code>/usr/bin</code> got merged. It was possible, but there was a lot of ugliness
-involved when using 3rd-party RPMs. The Fedora 21 upgrade contains nothing nasty in
-this department.</p>
-<p><a href="https://fedoraproject.org/wiki/Upgrading_Fedora_using_yum#Fedora_20_-.3E_Fedora_21">The official Wiki page</a>
-contains no warnings, just the usual RPM-Key import and a notice on choosing a
-flavor. A <code>touch /.autorelabel</code> should fix SELinux Problems.</p>
-<p>To spice things up, I thought to use
-<a href="https://github.com/rpm-software-management/dnf"><code>dnf</code></a> - the new package
-manager in Fedora for the upgrade. It utilizes <code>libsolv</code> from openSUSE for
-dependency resolution and should work better than yum in this respect.</p>
-<p>And it totally worked for me. Without a single problem, just by replacing the yum commands from
-the wiki with dnf. Cool stuff.</p>
-  </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Georg Vogetseder</a>
-      on: <a>2015-01-05</a>
-    </p>
+hard Fedora upgrade this way was the Fedora ...</p>
   </div>
 </article>
 <hr />
@@ -89,12 +71,6 @@ git rm -r .
 
 <p>The <code>git rm -r</code> removes the files copied from the origin branch.</p>
   </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Georg Vogetseder</a>
-      on: <a>2014-12-03</a>
-    </p>
-  </div>
 </article>
 <hr />
 <article>
@@ -105,12 +81,6 @@ git rm -r .
     <p>This is a test of the <strong>emergency broadcast system</strong>. Please stand by.</p>
 <p><img alt="Yes, master." src="../images/mad-dog.jpg" /></p>
   </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Georg Vogetseder</a>
-      on: <a>2014-12-03</a>
-    </p>
-  </div>
 </article>
 
 <footer>
@@ -120,11 +90,7 @@ git rm -r .
 </footer>
 
     <div id="ending_message">
-      <p>
-        &copy; The Shellpflanzerl Collective. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>.
-        Theme <a href="https://github.com/shellpflanzerl/pelican-svbhack">modified</a> from
-        Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>.
-.</p>
+      <p>&copy; The Shellpflanzerl Collective. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
     </div>
   </main>
 </body>
