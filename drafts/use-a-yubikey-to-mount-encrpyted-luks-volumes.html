@@ -118,11 +118,18 @@ Command successful.
 
 
 <p>We put all this in a script: </p>
-<h1>!/bin/bash</h1>
-<p>challenge="yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu"
-pass=<code>ykchalresp -2 $challenge</code>
-echo "$pass" | cryptsetup luksOpen /dev/vg_data/private private_data
-mount /dev/mapper/myprivate_data /my_private_data</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="nv">challenge</span><span class="o">=</span><span class="s2">&quot;yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu&quot;</span>
+<span class="nv">pass</span><span class="o">=</span><span class="sb">`</span>ykchalresp -2 <span class="nv">$challenge</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$pass</span><span class="s2">&quot;</span> <span class="p">|</span> cryptsetup luksOpen /dev/vg_data/private private_data
+mount /dev/mapper/myprivate_data /my_private_data
+</pre></div>
+</td></tr></table>
+
 <p>Now we have a fully functional Yubikey configured to mount LUKS devices.
 The next step to automate the mount are to call this script when the Yubikey is inserted - 
 in Part 2 of this article (coming soon!) </p>
