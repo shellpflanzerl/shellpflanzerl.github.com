@@ -7,8 +7,8 @@ Status: draft
 A few days ago I got a Yubikey Nano for testing. After a while I found a project where
 I could use the help of a small keystorage device like the Yubikey. 
 
-I got a LUKS encrypted partition on my NAS which will not be automatically mounted during
-bootup. By now I log in to the system and issue the 'cryptsetup luksOpen' and mount command
+I have a LUKS encrypted partition on my NAS which is not mounted automatically during
+bootup. To mount it I log in to the system and issue the 'cryptsetup luksOpen' and mount commands
 manually. This is fine with me but what if other people - like my wife - needs to access
 the encrypted data? The password (which exceeds more then 30 letters) is to hard to remember
 for someone who does not use it everyday. 
@@ -18,7 +18,7 @@ encrypted device. The Yubikey emulates an USB HID Device and has two configurati
 can be programmed to fit different usecases. It comes preconfigured with Yubico OTP on slot 1
 (128 bit AES onetime passwords, see https://www.yubico.com/products/services-software/personalization-tools/yubikey-otp/) and a secondary empty slot. 
 
-For the second slot we need the Challenge-Response Configuration. It takes a challenge block of 1-64 bytes and calculates a HMAC-SHA1 on this using the 160-bit secret stored in the Yubikey. The resulting 160-bit hash is sent back as a response which is used as passphrase for the LUKS device. 
+For the second slot we use the Challenge-Response Configuration. It takes a challenge block of 1-64 bytes and calculates a HMAC-SHA1 on this using the 160-bit secret stored in the Yubikey. The resulting 160-bit hash is sent back as a response which is used as passphrase for the LUKS device. 
 
 The configuration is done with the yubikey personalisation software (GUI version), which can be downloaded from the yubiko website.
 
