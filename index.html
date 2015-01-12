@@ -47,6 +47,116 @@
 
 <article>
   <div class="article_title">
+    <h3><a href="./use-a-yubikey-to-mount-encrpyted-luks-volumes.html">Use a Yubikey to mount encrpyted LUKS volumes</a></h3>
+  </div>
+  <div class="article_text">
+    <p>A few days ago I got a Yubikey Nano for testing. After a while I found a project where
+I could use the help of a small keystorage device like the Yubikey. </p>
+<p>I have a LUKS encrypted partition on my NAS which is not mounted automatically during
+bootup. To mount it I log in to the system and issue the 'cryptsetup luksOpen' and mount commands
+manually. This is fine with me but what if other people - like my wife - needs to access
+the encrypted data? The password (which exceeds more then 30 letters) is to hard to remember
+for someone who does not use it everyday. </p>
+<p>A possible solution is the use of a hardware token which delivers a valid passphrase for the
+encrypted device. The Yubikey emulates an USB HID Device and has two configuration slots which
+can be programmed to fit different usecases. It comes preconfigured with Yubico OTP on slot 1
+(128 bit AES onetime passwords, see https://www.yubico.com/products/services-software/personalization-tools/yubikey-otp/) and a secondary empty slot. </p>
+<p>For the second slot we use the Challenge-Response Configuration. It takes a challenge block of 1-64 bytes and calculates a HMAC-SHA1 on this using the 160-bit secret stored in the Yubikey. The resulting 160-bit hash is sent back as a response which is used as passphrase for the LUKS device. </p>
+<p>The configuration is done with the yubikey personalisation software (GUI version), which can be downloaded from the yubiko website.</p>
+<p>To get everything running on my F21 server there are a few steps to take: </p>
+<p>First of all we need the software:</p>
+<div class="highlight"><pre>yum -y install ykpers
+</pre></div>
+
+
+<p>Then we can insert the Yubikey in a USB slot and test it: </p>
+<div class="highlight"><pre>root@nas [0] ~ # ykinfo -a
+serial: XXXXXXXX
+serial_hex: XXXXXXX
+serial_modhex: XXXXXXX
+version: 2.4.2
+touch_level: 1790
+programming_sequence: 3
+slot1_status: 1
+slot2_status: 1
+vendor_id: 1050
+product_id: 10
+</pre></div>
+
+
+<p>The Yubikey is now ready. Now we are testing the challenge-response configuration: </p>
+<div class="highlight"><pre>root@nas [130] ~ # ykchalresp -2 &#39;this is a test&#39;
+bf2e98ba2ee43ab52dc5e32545bae8b11cb06f19
+</pre></div>
+
+
+<p>We got a response which will be used as passphrase for LUKS. But we need a better challenge for
+this simple text is too easy to guess. Possible methods are the use of /dev/urandom (for example
+dd if=/dev/urandom bs=1 count=40 2&gt;/dev/null| base64). 
+To mount the volume with this key we need to enter it to a free key slot in the LUKS device.
+Normally only slot 0 has a key, but just to be sure we check that: </p>
+<div class="highlight"><pre>root@nas [0] ~ # cryptsetup luksDump /dev/data/private | grep DISABLED
+Key Slot 1: DISABLED
+Key Slot 2: DISABLED
+Key Slot 3: DISABLED
+Key Slot 4: DISABLED
+Key Slot 5: DISABLED
+Key Slot 6: DISABLED
+Key Slot 7: DISABLED
+</pre></div>
+
+
+<p>We add the key:</p>
+<div class="highlight"><pre>cryptsetup luksAddKey --key-slot 1 /dev/data/private
+Enter any existing passphrase:
+key slot 0 unlocked.
+Enter new passphrase for key slot:
+Verify passphrase:
+</pre></div>
+
+
+<p>When all worked we have now a new key in keyslot 1:</p>
+<div class="highlight"><pre>root@nas [0] ~ # cryptsetup luksDump /dev/data/private | grep DISABLED
+Key Slot 2: DISABLED
+Key Slot 3: DISABLED
+Key Slot 4: DISABLED
+Key Slot 5: DISABLED
+Key Slot 6: DISABLED
+Key Slot 7: DISABLED
+</pre></div>
+
+
+<p>Key Slot 1 is now not DISABLED, so we have a key in it. To get all this work together
+we can write a Script which gets the password from the Yubikey, unlocks the LUKS device
+and mount it: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="c"># random string as challenge! CHANGE THIS FOR YOUR NEED!</span>
+<span class="nv">challenge</span><span class="o">=</span><span class="s2">&quot;yitwoydCaichewzyagudyanwikjeefJajIrKouQuizdu&quot;</span>
+<span class="nv">pass</span><span class="o">=</span><span class="sb">`</span>ykchalresp -2 <span class="nv">$challenge</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$pass</span><span class="s2">&quot;</span> <span class="p">|</span> cryptsetup luksOpen /dev/data/private myprivatedata
+mount /dev/mapper/myprivatedata /my_private_data
+</pre></div>
+</td></tr></table>
+
+<p>Now we have a fully functional Yubikey configured to mount LUKS devices.
+The next step to automate the mount are to call this script when the Yubikey is inserted - 
+in Part 2 of this article (coming soon!) </p>
+  </div>
+  <div class="article_meta">
+    <p>
+      Posted by: <a>Martin Zehetmayer</a>
+      on: <a>2015-01-12</a>
+    </p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h3><a href="./upgrade-to-fedora-21-the-dnf-way.html">Upgrade to Fedora 21, the dnf way</a></h3>
   </div>
   <div class="article_text">
@@ -170,25 +280,10 @@ git rm -r .
     </p>
   </div>
 </article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="./hello-world.html">Hello World</a></h3>
-  </div>
-  <div class="article_text">
-    <p>This is a test of the <strong>emergency broadcast system</strong>. Please stand by.</p>
-<p><img alt="Yes, master." src="./images/mad-dog.jpg" /></p>
-  </div>
-  <div class="article_meta">
-    <p>
-      Posted by: <a>Georg Vogetseder</a>
-      on: <a>2014-12-03</a>
-    </p>
-  </div>
-</article>
 
 <footer>
 <div id="paginator">
+<a href="./index2.html" class="button_accent">&larr; Older Posts</a>
 
 </div>
 </footer>
